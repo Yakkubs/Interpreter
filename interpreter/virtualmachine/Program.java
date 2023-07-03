@@ -1,5 +1,8 @@
 package interpreter.virtualmachine;
 
+import interpreter.bytecodes.ByteCode;
+import interpreter.bytecodes.Goto;
+
 import java.util.ArrayList;
 import java.util.List;
 public class Program {
@@ -27,7 +30,7 @@ public class Program {
      * @param programCounter index of bytecode to get.
      * @return a bytecode.
      */
-    public ByteCode getCode(int programCounter) {
+    public static ByteCode getCode(int programCounter) {
         return null;
     }
 
@@ -47,6 +50,11 @@ public class Program {
      * **** METHOD SIGNATURE CANNOT BE CAHNGED *****
      */
     public void resolveAddress() {
-
+        for(int i = 0; i < this.program.size(); i++){
+            ByteCode bc = this.program.get(i);
+            if(bc instanceof Goto gc){
+                gc.setAddress();
+            }
+        }
     }
 }

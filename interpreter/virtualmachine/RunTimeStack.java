@@ -91,4 +91,7 @@ class RunTimeStack{
         System.out.println(rs.dump());
     }
 
+    public int currentFrameSize() {
+        return runTimeStack.size() - framePointer.peek();
+    }
 }
