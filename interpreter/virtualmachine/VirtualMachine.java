@@ -25,6 +25,10 @@ public class VirtualMachine {
         while(isRunning){
             ByteCode code = Program.getCode(programCounter);
             code.execute(this);
+            if(this.dumpStatus){
+                System.out.println(code);
+                this.runTimeStack.dump();
+            }
             programCounter++;
         }
     }
@@ -79,5 +83,9 @@ public class VirtualMachine {
         }else if(state.equals("OFF")){
             this.dumpStatus = false;
         }
+    }
+
+    public int peek() {
+        return this.runTimeStack.peek();
     }
 }

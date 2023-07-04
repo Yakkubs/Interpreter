@@ -8,6 +8,10 @@ public class Write implements ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
-
+        System.out.println(vm.peek());
+    }
+    @Override
+    public String toString() {
+        return "WRITE";
     }
 }

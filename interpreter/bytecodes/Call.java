@@ -24,6 +24,6 @@ public class Call implements ByteCode {
     }
     @Override
     public String toString() {
-        return "CALL " + this.label + "<<" + this.target + ">>";
+        return "CALL " + this.label;
     }
 }
