@@ -14,7 +14,7 @@ public class Program {
      * ArrayList
      */
     public Program() {
-
+        program = new ArrayList<>();
     }
 
     /**
@@ -22,7 +22,7 @@ public class Program {
      * @return size of program
      */
     public int getSize() {
-        return 0;
+        return this.program.size();
     }
 
     /**
@@ -30,8 +30,8 @@ public class Program {
      * @param programCounter index of bytecode to get.
      * @return a bytecode.
      */
-    public static ByteCode getCode(int programCounter) {
-        return null;
+    public ByteCode getCode(int programCounter) {
+        return this.program.get(programCounter);
     }
 
     /**
@@ -39,7 +39,7 @@ public class Program {
      * @param c bytecode to be added
      */
     public void addByteCode(ByteCode c) {
-
+        this.program.add(c);
     }
 
     /**
