@@ -1,7 +1,7 @@
 # CSC 413 - Project Two - The Interpreter
 
-## Student Name  : Name here
+## Student Name  : Yakoub Alkabsh
 
-## Student ID    : ID here
+## Student ID    : 917108002
 
-## Student Email : Email here
+## Student Email : yalkabsh2@sfsu.edu

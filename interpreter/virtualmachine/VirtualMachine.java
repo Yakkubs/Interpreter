@@ -11,6 +11,7 @@ public class VirtualMachine {
     private Program        program;
     private int            programCounter;
     private boolean        isRunning;
+    private boolean        dumpStatus;
 
     public VirtualMachine(Program program) {
         this.program = program;
@@ -70,5 +71,13 @@ public class VirtualMachine {
 
     public int popReturnAddress() {
         return this.returnAddress.pop();
+    }
+
+    public void dumpState(String state) {
+        if(state.equals("ON")){
+            this.dumpStatus = true;
+        }else if(state.equals("OFF")){
+            this.dumpStatus = false;
+        }
     }
 }
