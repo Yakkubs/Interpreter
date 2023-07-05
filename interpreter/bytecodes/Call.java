@@ -10,7 +10,7 @@ public class Call implements ByteCode {
     }
     @Override
     public void execute(VirtualMachine vm) {
-        vm.pushPC();
+        vm.pushToAddressStack();
         vm.setProgramCounter(target);
     }
     public void setTarget (int target) {

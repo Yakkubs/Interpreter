@@ -14,9 +14,10 @@ public class Goto implements ByteCode {
         vm.setProgramCounter(target);
     }
 
-    public void setAddress(int target) {
+    public void setTarget(int target) {
         this.target = target;
     }
+    //made this just incase, dont think i need it for goto
     public int getTarget() {
         return this.target;
     }

@@ -1,13 +1,14 @@
 package interpreter.virtualmachine;
 
-import interpreter.bytecodes.ByteCode;
-import interpreter.bytecodes.Goto;
+import interpreter.bytecodes.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 public class Program {
 
     private List<ByteCode> program;
+    private HashMap<String, Integer> addressLocations = new HashMap<>();
 
     /**
      * Instantiates a program object using an
@@ -15,6 +16,7 @@ public class Program {
      */
     public Program() {
         program = new ArrayList<>();
+
     }
 
     /**
@@ -39,6 +41,11 @@ public class Program {
      * @param c bytecode to be added
      */
     public void addByteCode(ByteCode c) {
+        //checking id byteCode is a label, if so we put it into the hashMap
+        if(c instanceof Label lc){
+            addressLocations.put(lc.getLabel(),this.program.size());
+
+        }
         this.program.add(c);
     }
 
@@ -53,7 +60,11 @@ public class Program {
         for(int i = 0; i < this.program.size(); i++){
             ByteCode bc = this.program.get(i);
             if(bc instanceof Goto gc){
-                gc.setAddress();
+                gc.setTarget(addressLocations.get(gc.getLabel()));
+            }else if(bc instanceof Call cc){
+                cc.setTarget(addressLocations.get(cc.getLabelName()));
+            }else if(bc instanceof FalseBranch fbc){
+                fbc.setTarget(addressLocations.get(fbc.getLabel()));
             }
         }
     }

@@ -23,11 +23,11 @@ public class VirtualMachine {
     public void executeProgram() {
         isRunning = true;
         while(isRunning){
-            ByteCode code = Program.getCode(programCounter);
+            ByteCode code = this.program.getCode(programCounter);
             code.execute(this);
             if(this.dumpStatus){
                 System.out.println(code);
-                this.runTimeStack.dump();
+                System.out.println(this.runTimeStack.dump());
             }
             programCounter++;
         }
@@ -65,8 +65,8 @@ public class VirtualMachine {
         this.runTimeStack.newFrameAt(numOfArgs);
     }
 
-    public void pushPC() {
-        this.runTimeStack.push(programCounter);
+    public void pushToAddressStack() {
+        this.returnAddress.push(programCounter);
     }
 
     public void popFrame() {
