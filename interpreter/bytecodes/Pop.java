@@ -16,6 +16,7 @@ public class Pop implements ByteCode {
         }
         while(popCount > 0){
             vm.pop();
+            popCount--;
         }
     }
 

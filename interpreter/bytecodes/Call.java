@@ -2,7 +2,7 @@ package interpreter.bytecodes;
 
 import interpreter.virtualmachine.VirtualMachine;
 
-public class Call implements ByteCode {
+public class Call implements ByteCode,JumpCode {
     private String label;
     private int target;
     public Call(String[] args) {
@@ -16,7 +16,7 @@ public class Call implements ByteCode {
     public void setTarget (int target) {
         this.target = target;
     }
-    public String getLabelName() {
+    public String getLabel() {
         return this.label;
     }
     public int getTarget() {
@@ -24,6 +24,9 @@ public class Call implements ByteCode {
     }
     @Override
     public String toString() {
-        return "CALL " + this.label;
+        String base = "CALL " + this.label;
+        String[] split = label.split("<");
+        base += "\t"+split[0] + "()";
+        return base;
     }
 }

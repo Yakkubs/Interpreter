@@ -69,12 +69,12 @@ class RunTimeStack{
         framePointer.push(runTimeStack.size()-offsetFromTopOfRunStack);
     }
     public void popFrame(){
-        int val = pop();
+        //int val = pop();
         while(runTimeStack.size() > framePointer.peek()){
             pop();
         }
         framePointer.pop();
-        runTimeStack.add(val);
+        //runTimeStack.add(val);
     }
     public static void main(String[] args) {
         RunTimeStack rs = new RunTimeStack();

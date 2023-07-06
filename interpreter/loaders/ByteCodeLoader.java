@@ -37,15 +37,14 @@ public final class ByteCodeLoader {
             String byteCodeName;
             ByteCode bc;
             program = new Program();
-            for(line = reader.readLine(); reader.ready(); line= reader.readLine()){
+            while(reader.ready()){
+                line = reader.readLine();
                 items = line.split("\\s+");
                 byteCodeName = items[0];
                 bc = ByteCode.getNewInstance(byteCodeName,items);
                 program.addByteCode(bc);
             }
-        }catch(FileNotFoundException e){
-            throw new RuntimeException(e);
-        }catch(IOException e){
+        } catch(IOException e){
             throw new RuntimeException(e);
         }
        return program;

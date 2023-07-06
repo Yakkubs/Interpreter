@@ -2,7 +2,7 @@ package interpreter.bytecodes;
 
 import interpreter.virtualmachine.VirtualMachine;
 
-public class Dump implements ByteCode {
+public class Dump implements ByteCode,notDumping {
     private String state;
     public Dump(String[] args) {
         this.state = args[1];

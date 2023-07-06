@@ -14,7 +14,7 @@ public class Read implements ByteCode {
         boolean valid = false;
         while(!valid){
             try {
-                System.out.println("Please enter an integer: ");
+                System.out.print("Please enter an integer: ");
                 int userInput = scanner.nextInt();
                 vm.push(userInput);
                 valid = true;

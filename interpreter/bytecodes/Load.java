@@ -20,7 +20,7 @@ public class Load implements ByteCode {
     public String toString(){
         String base = "LOAD " + offset;
         if(this.id!=null){
-            base += " " + this.id + " <load " + this.id + ">";
+            base += " " + this.id + "\t<load " + this.id + ">";
         }
         return base;
     }

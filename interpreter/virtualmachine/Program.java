@@ -57,15 +57,20 @@ public class Program {
      * **** METHOD SIGNATURE CANNOT BE CAHNGED *****
      */
     public void resolveAddress() {
-        for(int i = 0; i < this.program.size(); i++){
+        for(int i = 0; i < this.program.size(); i++) {
             ByteCode bc = this.program.get(i);
-            if(bc instanceof Goto gc){
-                gc.setTarget(addressLocations.get(gc.getLabel()));
-            }else if(bc instanceof Call cc){
-                cc.setTarget(addressLocations.get(cc.getLabelName()));
-            }else if(bc instanceof FalseBranch fbc){
-                fbc.setTarget(addressLocations.get(fbc.getLabel()));
+            if (bc instanceof JumpCode jc) {
+                jc.setTarget(addressLocations.get(jc.getLabel()));
+
             }
+//            if(bc instanceof Goto gc){
+//                gc.setTarget(addressLocations.get(gc.getLabel()));
+//            }else if(bc instanceof Call cc){
+//                cc.setTarget(addressLocations.get(cc.getLabelName()));
+//            }else if(bc instanceof FalseBranch fbc){
+//                fbc.setTarget(addressLocations.get(fbc.getLabel()));
+//            }
         }
+
     }
 }

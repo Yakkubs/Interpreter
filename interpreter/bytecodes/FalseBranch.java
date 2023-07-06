@@ -2,7 +2,7 @@ package interpreter.bytecodes;
 
 import interpreter.virtualmachine.VirtualMachine;
 
-public class FalseBranch implements ByteCode {
+public class FalseBranch implements ByteCode,JumpCode {
     private String label;
     private int target;
 

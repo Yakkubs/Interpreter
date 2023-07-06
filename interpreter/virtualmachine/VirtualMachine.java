@@ -1,6 +1,7 @@
 package interpreter.virtualmachine;
 
 import interpreter.bytecodes.ByteCode;
+import interpreter.bytecodes.notDumping;
 
 import java.util.Stack;
 
@@ -25,7 +26,7 @@ public class VirtualMachine {
         while(isRunning){
             ByteCode code = this.program.getCode(programCounter);
             code.execute(this);
-            if(this.dumpStatus){
+            if(this.dumpStatus && !(code instanceof notDumping)){
                 System.out.println(code);
                 System.out.println(this.runTimeStack.dump());
             }

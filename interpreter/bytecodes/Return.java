@@ -2,8 +2,11 @@ package interpreter.bytecodes;
 
 import interpreter.virtualmachine.VirtualMachine;
 
+import java.util.Arrays;
+
 public class Return implements ByteCode {
     private String label;
+    private int returnVal;
 
     public Return(String[] args) {
         //in case of no arguments
@@ -14,7 +17,9 @@ public class Return implements ByteCode {
 
     @Override
     public void execute(VirtualMachine vm) {
+        returnVal = vm.pop();
         vm.popFrame();
+        vm.push(returnVal);
         vm.setProgramCounter(vm.popReturnAddress());
     }
 
@@ -22,7 +27,9 @@ public class Return implements ByteCode {
     public String toString() {
         String base = "RETURN";
         if(label != null){
-            base += " " + label;
+            base += " " + label + " EXIT ";
+            String[] split = label.split("<");
+            base += split[0] + " : " + returnVal;
         }
         return base;
     }
