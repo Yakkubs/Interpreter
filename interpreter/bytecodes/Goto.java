@@ -18,9 +18,6 @@ public class Goto implements ByteCode,JumpCode {
         this.target = target;
     }
     //made this just incase, dont think i need it for goto
-    public int getTarget() {
-        return this.target;
-    }
     public String getLabel() {
         return this.label;
     }

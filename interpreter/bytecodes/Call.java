@@ -19,9 +19,6 @@ public class Call implements ByteCode,JumpCode {
     public String getLabel() {
         return this.label;
     }
-    public int getTarget() {
-        return this.target;
-    }
     @Override
     public String toString() {
         String base = "CALL " + this.label;

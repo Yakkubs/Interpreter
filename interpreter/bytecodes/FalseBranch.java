@@ -18,9 +18,6 @@ public class FalseBranch implements ByteCode,JumpCode {
     public void setTarget(int target) {
         this.target = target;
     }
-    public int getTarget() {
-        return this.target;
-    }
 
     public String getLabel() {
         return this.label;
