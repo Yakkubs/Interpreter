@@ -92,4 +92,16 @@ class RunTimeStack{
     public int currentFrameSize() {
         return runTimeStack.size() - framePointer.peek();
     }
+
+    public String stringCurrentFrame() {
+        String currentFrameString = "";
+        for (int i = currentFrameSize() - 1; i >= 0; i--) {
+            currentFrameString += Integer.toString(runTimeStack.get((runTimeStack.size() - 1) - i));
+            if (i > 0) {
+                currentFrameString += ",";
+            }
+        }
+        return currentFrameString;
+    }
+
 }

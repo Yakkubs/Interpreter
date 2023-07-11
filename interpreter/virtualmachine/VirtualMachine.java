@@ -89,4 +89,8 @@ public class VirtualMachine {
     public int peek() {
         return this.runTimeStack.peek();
     }
+
+    public String stringCurrentFrame() {
+        return this.runTimeStack.stringCurrentFrame();
+    }
 }
