@@ -54,7 +54,7 @@ public class Program {
      * addrss for Goto,Call and FalseBranch bytecodes. These bytecodes
      * can only jump to Label codes that have a matching label value.
      * HINT: make note of what type of data-structure ByteCodes are stored in.
-     * **** METHOD SIGNATURE CANNOT BE CAHNGED *****
+     * **** METHOD SIGNATURE CANNOT BE CHANGED *****
      */
     public void resolveAddress() {
         for(int i = 0; i < this.program.size(); i++) {
