@@ -2,6 +2,4 @@
 
 ## Student Name  : Yakoub Alkabsh
 
-## Student ID    : 917108002
-
 ## Student Email : yalkabsh2@sfsu.edu
